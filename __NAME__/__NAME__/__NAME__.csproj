@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>81543f36-17b7-4609-8b5c-2d3c310049b1</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.2.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="MassTransit" Version="7.2.1" />
+    <PackageReference Include="MassTransit.Autofac" Version="7.2.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.2.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\__NAME__.CommandProcessor\__NAME__.CommandProcessor.csproj" />
+    <ProjectReference Include="..\__NAME__.Domain.Command\__NAME__.Domain.Command.csproj" />
+    <ProjectReference Include="..\__NAME__.Domain.Entities\__NAME__.Domain.Entities.csproj" />
+    <ProjectReference Include="..\__NAME__.Domain.Handler\__NAME__.Domain.Handler.csproj" />
+    <ProjectReference Include="..\__NAME__.Domain.Query\__NAME__.Domain.Query.csproj" />
+    <ProjectReference Include="..\__NAME__.Domain.Service\__NAME__.Domain.Service.csproj" />
+    <ProjectReference Include="..\__NAME__.MassTransit.Client\__NAME__.MassTransit.Client.csproj" />
+    <ProjectReference Include="..\__NAME__.MassTransit.Consumer\__NAME__.MassTransit.Consumer.csproj" />
+    <ProjectReference Include="..\__NAME__.ServiceBus\__NAME__.ServiceBus.csproj" />
+    <ProjectReference Include="..\__NAME__.Shared.Messages\__NAME__.Shared.Messages.csproj" />
+  </ItemGroup>
+
+</Project>
