@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using __NAME__.CommandProcessor.Dispatcher;
 using __NAME__.Domain.Query;
 using __NAME__.Domain.Command;
@@ -12,11 +12,12 @@ using __NAME__.Domain.Entities.Sample;
 
 namespace __NAME__.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize]
+    [RequiredScope(new string[] { "ReadWriteAccess" })]
     [ApiController]
+    [Route("api/[controller]")]
     public class SampleCustomerController : ControllerBase
     {
-
         private readonly ICommandBus _commandBus;
         private readonly IQuery _query;
         public SampleCustomerController(ICommandBus commandBus, IQuery query)
