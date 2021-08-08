@@ -1,13 +1,15 @@
 
 using System.Configuration;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using __NAME__.Modules;
 using __NAME__.Shared;
 
@@ -28,6 +30,9 @@ namespace __NAME__
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutofac();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -58,6 +63,7 @@ namespace __NAME__
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
