@@ -8,7 +8,29 @@ Microservice template using microsoft latest .Net 5
 
 
 * Why Microservice template
+
+   In microservice architecture style, we are expected to divide domain into several sub domain and each act as independent service. It is quite repeative work to setup service following best practices. To improve turn around time and effectively create service in matter of few mins. This template help you create microservice following domain driven design, command and query responsiblilty segregation and service bus to send events, so that other microservice remain in sync. 
+   Solution is templatized, so you can easily replace place holder "__NAME__" and create personalized service in no time.
+   
+* How to use?
+
+   To replace __NAME__ with your brand name of solution
+  
+      * Install warmup using cinst warmup
+      * Add replacement token
+            * C:\ProgramData\chocolatey\lib\warmup\bin
+            * Add TextReplace section
+                  * <add find="__NAME__" replace="ProjectName"/>
+            * Or use below command
+                  * warmup addTextReplacement warmup ProjectName
+       * To get template project command
+            * Maintain template project at C:\CODE\_templates\base
+            * Create destination folder as "D:\XYZ"
+            * Run command to get customized project
+                  * warmup base ProjectName
 * Components
+
+   Service : Named as "__NAME__", act as microservice based on Microsoft lastest .net 5. 
 * Communication between microservices
 * Create microservice from template solution
 * Benefits
